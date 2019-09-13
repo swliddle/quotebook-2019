@@ -11,9 +11,16 @@ import WebKit
 
 class QuoteViewController: UIViewController {
 
+    // MARK: - Constants
+
+    private struct Storyboard {
+        static let quoteOfTheDayTitle = "Quote of the Day"
+    }
+
     // MARK: - Properties
 
     var currentQuoteIndex = 0
+    var quotes: [Quote]!
     var topic: String?
 
     // MARK: - Outlets
@@ -25,8 +32,7 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        chooseQuoteOfTheDay()
-        updateUI()
+        configure()
     }
 
     // MARK: - Helpers
@@ -41,8 +47,22 @@ class QuoteViewController: UIViewController {
         }
     }
 
+    private func configure() {
+        if let currentTopic = topic {
+            currentQuoteIndex = 0
+            quotes = QuoteDeck.sharedInstance.quotes(for: currentTopic)
+            title = "\(currentTopic.capitalized) (\(currentQuoteIndex + 1) of \(quotes.count))"
+        } else {
+            quotes = QuoteDeck.sharedInstance.quotes
+            chooseQuoteOfTheDay()
+            title = Storyboard.quoteOfTheDayTitle
+        }
+
+        updateUI()
+    }
+
     private func updateUI() {
-        let currentQuote = QuoteDeck.sharedInstance.quotes[currentQuoteIndex]
+        let currentQuote = quotes[currentQuoteIndex]
 
         webView.loadHTMLString(currentQuote.html, baseURL: nil)
     }
@@ -51,11 +71,11 @@ class QuoteViewController: UIViewController {
 
     @IBAction func exitModalScene(_ segue: UIStoryboardSegue) {
         // In this case, this is nothing to do, but we need a target
+        topic = nil
+        configure()
     }
 
     @IBAction func showTopicQuotes(_ segue: UIStoryboardSegue) {
-        if let currentTopic = topic {
-            title = currentTopic.capitalized
-        }
+        configure()
     }
 }
