@@ -14,6 +14,7 @@ class QuoteViewController: UIViewController {
     // MARK: - Properties
 
     var currentQuoteIndex = 0
+    var topic: String?
 
     // MARK: - Outlets
 
@@ -50,5 +51,11 @@ class QuoteViewController: UIViewController {
 
     @IBAction func exitModalScene(_ segue: UIStoryboardSegue) {
         // In this case, this is nothing to do, but we need a target
+    }
+
+    @IBAction func showTopicQuotes(_ segue: UIStoryboardSegue) {
+        if let currentTopic = topic {
+            title = currentTopic.capitalized
+        }
     }
 }

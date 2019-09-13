@@ -13,14 +13,21 @@ class TopicsViewController: UITableViewController {
     // MARK: - Constants
 
     private struct Storyboard {
+        static let showQuoteSegueIdentifier = "ShowQuote"
         static let topicCellIdentifier = "TopicCell"
     }
 
     // MARK: - Properties
 
+    var selectedTopic: String?
 
     // MARK: - View controller lifecycle
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let quoteViewController = segue.destination as? QuoteViewController {
+            quoteViewController.topic = selectedTopic
+        }
+    }
 
     // MARK: - Table view data source
 
@@ -39,7 +46,8 @@ class TopicsViewController: UITableViewController {
     // MARK: - Table view delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("User tapped row \(indexPath.row)")
+        selectedTopic = QuoteDeck.sharedInstance.tagSet[indexPath.row]
+        performSegue(withIdentifier: Storyboard.showQuoteSegueIdentifier, sender: self)
     }
 
 }
