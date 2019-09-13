@@ -11,6 +11,10 @@ import WebKit
 
 class QuoteViewController: UIViewController {
 
+    // MARK: - Properties
+
+    var currentQuoteIndex = 0
+
     // MARK: - Outlets
 
     @IBOutlet weak var webView: WKWebView!
@@ -20,39 +24,26 @@ class QuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        webView.loadHTMLString("""
-            <!DOCTYPE html>
-            <html>
-            <head>
-            <title>Quote of the Day</title>
-            <meta name="viewport" content="initial-scale=1.0">
-            <style>
-                body {
-                    padding: 1em;
-                    font-size: 24pt;
-                }
+        chooseQuoteOfTheDay()
+        updateUI()
+    }
 
-                .quote {
-                    font-style: italic;
-                }
+    // MARK: - Helpers
 
-                .speaker {
-                    text-align: right;
-                    padding-top: 1em;
-                }
+    private func chooseQuoteOfTheDay() {
+        let formatter = DateFormatter()
 
-                .speaker::before {
-                    content: "— ";
-                }
-            </style>
-            </head>
-            <body>
-            <div class="quote">Do you want to know who you are? Don&rsquo;t ask. Act!
-                               Action will delineate and define you.</div>
-            <div class="speaker">Thomas Jefferson</div>
-            </body>
-            </html>
-            """, baseURL: nil)
+        formatter.dateFormat = "DDD"
+
+        if let dayInYear = Int(formatter.string(from: Date())) {
+            currentQuoteIndex = dayInYear % QuoteDeck.sharedInstance.quotes.count
+        }
+    }
+
+    private func updateUI() {
+        let currentQuote = QuoteDeck.sharedInstance.quotes[currentQuoteIndex]
+
+        webView.loadHTMLString(currentQuote.html, baseURL: nil)
     }
 
     // MARK: - Segues
