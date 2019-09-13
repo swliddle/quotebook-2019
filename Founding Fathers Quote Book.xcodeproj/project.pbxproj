@@ -13,6 +13,8 @@
 		3F50BF6B232AF2A400A69329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F50BF6A232AF2A400A69329 /* Assets.xcassets */; };
 		3F50BF6E232AF2A400A69329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F50BF6C232AF2A400A69329 /* LaunchScreen.storyboard */; };
 		3F90F3B5232AFBF2003F71B5 /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90F3B4232AFBF2003F71B5 /* QuoteViewController.swift */; };
+		3F90F3BD232C35DF003F71B5 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90F3BC232C35DF003F71B5 /* Quote.swift */; };
+		3F90F3BF232C371B003F71B5 /* QuoteDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F90F3BE232C371B003F71B5 /* QuoteDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3F50BF6D232AF2A400A69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F50BF6F232AF2A400A69329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F90F3B4232AFBF2003F71B5 /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
+		3F90F3BC232C35DF003F71B5 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		3F90F3BE232C371B003F71B5 /* QuoteDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteDeck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		3F50BF60232AF2A200A69329 /* Founding Fathers Quote Book */ = {
 			isa = PBXGroup;
 			children = (
-				3F50BF61232AF2A200A69329 /* AppDelegate.swift */,
-				3F50BF63232AF2A200A69329 /* SceneDelegate.swift */,
-				3F50BF67232AF2A200A69329 /* Main.storyboard */,
-				3F50BF6A232AF2A400A69329 /* Assets.xcassets */,
-				3F50BF6C232AF2A400A69329 /* LaunchScreen.storyboard */,
-				3F50BF6F232AF2A400A69329 /* Info.plist */,
-				3F90F3B4232AFBF2003F71B5 /* QuoteViewController.swift */,
+				3F90F3B9232C3593003F71B5 /* Model */,
+				3F90F3BA232C35A1003F71B5 /* View */,
+				3F90F3BB232C35A7003F71B5 /* Controller */,
+				3F90F3B8232C3550003F71B5 /* Supporting Files */,
 			);
 			path = "Founding Fathers Quote Book";
+			sourceTree = "<group>";
+		};
+		3F90F3B8232C3550003F71B5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F50BF61232AF2A200A69329 /* AppDelegate.swift */,
+				3F50BF6A232AF2A400A69329 /* Assets.xcassets */,
+				3F50BF6F232AF2A400A69329 /* Info.plist */,
+				3F50BF6C232AF2A400A69329 /* LaunchScreen.storyboard */,
+				3F50BF63232AF2A200A69329 /* SceneDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F90F3B9232C3593003F71B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3F90F3BC232C35DF003F71B5 /* Quote.swift */,
+				3F90F3BE232C371B003F71B5 /* QuoteDeck.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3F90F3BA232C35A1003F71B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F50BF67232AF2A200A69329 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F90F3BB232C35A7003F71B5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3F90F3B4232AFBF2003F71B5 /* QuoteViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +176,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F90F3BD232C35DF003F71B5 /* Quote.swift in Sources */,
+				3F90F3BF232C371B003F71B5 /* QuoteDeck.swift in Sources */,
 				3F90F3B5232AFBF2003F71B5 /* QuoteViewController.swift in Sources */,
 				3F50BF62232AF2A200A69329 /* AppDelegate.swift in Sources */,
 				3F50BF64232AF2A200A69329 /* SceneDelegate.swift in Sources */,
