@@ -54,4 +54,10 @@ class QuoteViewController: UIViewController {
             </html>
             """, baseURL: nil)
     }
+
+    // MARK: - Segues
+
+    @IBAction func exitModalScene(_ segue: UIStoryboardSegue) {
+        // In this case, this is nothing to do, but we need a target
+    }
 }

@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F50BF5E232AF2A200A69329 /* Founding Fathers Quote Book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Founding Fathers Quote Book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F50BF5E232AF2A200A69329 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F50BF61232AF2A200A69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F50BF63232AF2A200A69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3F50BF68232AF2A200A69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		3F50BF5F232AF2A200A69329 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F50BF5E232AF2A200A69329 /* Founding Fathers Quote Book.app */,
+				3F50BF5E232AF2A200A69329 /* Quotes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,7 +84,7 @@
 			);
 			name = "Founding Fathers Quote Book";
 			productName = "Founding Fathers Quote Book";
-			productReference = 3F50BF5E232AF2A200A69329 /* Founding Fathers Quote Book.app */;
+			productReference = 3F50BF5E232AF2A200A69329 /* Quotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.is543.Founding-Fathers-Quote-Book";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quotes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,7 +310,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.byu.is543.Founding-Fathers-Quote-Book";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quotes;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
