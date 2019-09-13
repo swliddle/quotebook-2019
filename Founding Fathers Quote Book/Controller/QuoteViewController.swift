@@ -35,6 +35,26 @@ class QuoteViewController: UIViewController {
         configure()
     }
 
+    // MARK: - Actions
+
+    @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+            currentQuoteIndex -= 1
+
+            if currentQuoteIndex < 0 {
+                currentQuoteIndex = quotes.count - 1
+            }
+        } else {
+            currentQuoteIndex += 1
+
+            if currentQuoteIndex >= quotes.count {
+                currentQuoteIndex = 0
+            }
+        }
+
+        updateUIByToggling()
+    }
+    
     // MARK: - Helpers
 
     private func chooseQuoteOfTheDay() {
@@ -51,20 +71,46 @@ class QuoteViewController: UIViewController {
         if let currentTopic = topic {
             currentQuoteIndex = 0
             quotes = QuoteDeck.sharedInstance.quotes(for: currentTopic)
-            title = "\(currentTopic.capitalized) (\(currentQuoteIndex + 1) of \(quotes.count))"
         } else {
             quotes = QuoteDeck.sharedInstance.quotes
             chooseQuoteOfTheDay()
-            title = Storyboard.quoteOfTheDayTitle
         }
 
         updateUI()
     }
 
+    private func title(for topic: String) -> String {
+        return "\(topic.capitalized) (\(currentQuoteIndex + 1) of \(quotes.count))"
+    }
+
     private func updateUI() {
         let currentQuote = quotes[currentQuoteIndex]
 
+        if let currentTopic = topic {
+            title = title(for: currentTopic)
+        } else {
+            title = Storyboard.quoteOfTheDayTitle
+        }
+
         webView.loadHTMLString(currentQuote.html, baseURL: nil)
+    }
+
+    private func updateUIByToggling() {
+        let quote = quotes[currentQuoteIndex]
+
+        if let currentTopic = topic {
+            // See http://bit.ly/2ctUdTI
+
+            let fadeTextAnimation = CATransition()
+
+            fadeTextAnimation.duration = 0.75
+            fadeTextAnimation.type = .fade
+
+            navigationController?.navigationBar.layer.add(fadeTextAnimation, forKey: "fadeText")
+            navigationItem.title = title(for: currentTopic)
+        }
+
+        webView.evaluateJavaScript("toggleQuote('\(quote.text)', '\(quote.speaker)')")
     }
 
     // MARK: - Segues
