@@ -171,8 +171,6 @@ class QuoteViewController: UIViewController {
 
     @IBAction func exitModalScene(_ segue: UIStoryboardSegue) {
         // In this case, this is nothing to do, but we need a target
-        topic = nil
-        configure(updatingCurrentIndex: true)
     }
 
     @IBAction func showTopicQuotes(_ segue: UIStoryboardSegue) {
