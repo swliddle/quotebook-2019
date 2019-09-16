@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F47A682232FE410000B4DAD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47A681232FE410000B4DAD /* SettingsViewController.swift */; };
 		3F50BF62232AF2A200A69329 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50BF61232AF2A200A69329 /* AppDelegate.swift */; };
-		3F50BF64232AF2A200A69329 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50BF63232AF2A200A69329 /* SceneDelegate.swift */; };
 		3F50BF69232AF2A200A69329 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F50BF67232AF2A200A69329 /* Main.storyboard */; };
 		3F50BF6B232AF2A400A69329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F50BF6A232AF2A400A69329 /* Assets.xcassets */; };
 		3F50BF6E232AF2A400A69329 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F50BF6C232AF2A400A69329 /* LaunchScreen.storyboard */; };
@@ -23,7 +22,6 @@
 		3F47A681232FE410000B4DAD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F50BF5E232AF2A200A69329 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F50BF61232AF2A200A69329 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F50BF63232AF2A200A69329 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3F50BF68232AF2A200A69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F50BF6A232AF2A400A69329 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F50BF6D232AF2A400A69329 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				3F50BF6A232AF2A400A69329 /* Assets.xcassets */,
 				3F50BF6F232AF2A400A69329 /* Info.plist */,
 				3F50BF6C232AF2A400A69329 /* LaunchScreen.storyboard */,
-				3F50BF63232AF2A200A69329 /* SceneDelegate.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -188,7 +185,6 @@
 				3F90F3C1232C4054003F71B5 /* TopicsViewController.swift in Sources */,
 				3F90F3B5232AFBF2003F71B5 /* QuoteViewController.swift in Sources */,
 				3F50BF62232AF2A200A69329 /* AppDelegate.swift in Sources */,
-				3F50BF64232AF2A200A69329 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFPSLPBU25;
 				INFOPLIST_FILE = "Founding Fathers Quote Book/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,6 +350,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFPSLPBU25;
 				INFOPLIST_FILE = "Founding Fathers Quote Book/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -92,7 +92,7 @@ class QuoteViewController: UIViewController {
         updateUI()
     }
 
-    private func showQuoteOfTheDay() {
+    func showQuoteOfTheDay() {
         topic = nil
         configure()
     }
