@@ -155,6 +155,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-Uu-kd1">
                                                     <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" id="8qw-lL-YSa"/>
+                                                    </constraints>
                                                     <connections>
                                                         <action selector="toggleNotifications:" destination="hgJ-7X-SFy" eventType="valueChanged" id="gPv-NB-bUM"/>
                                                     </connections>
@@ -163,9 +166,10 @@
                                             <constraints>
                                                 <constraint firstItem="LHb-Uu-kd1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IgU-ll-Dn1" secondAttribute="trailing" constant="8" symbolic="YES" id="5zN-J2-1aH"/>
                                                 <constraint firstItem="IgU-ll-Dn1" firstAttribute="centerY" secondItem="LHb-Uu-kd1" secondAttribute="centerY" id="QP2-EO-8pu"/>
-                                                <constraint firstItem="LHb-Uu-kd1" firstAttribute="centerY" secondItem="Uix-57-ExW" secondAttribute="centerY" id="QhE-00-SYT"/>
                                                 <constraint firstAttribute="trailing" secondItem="LHb-Uu-kd1" secondAttribute="trailing" constant="20" id="UbJ-q7-0TM"/>
+                                                <constraint firstAttribute="bottom" secondItem="LHb-Uu-kd1" secondAttribute="bottom" constant="6.5" id="niZ-8j-0bs"/>
                                                 <constraint firstItem="IgU-ll-Dn1" firstAttribute="leading" secondItem="Uix-57-ExW" secondAttribute="leading" constant="20" id="wmD-dh-Gml"/>
+                                                <constraint firstItem="LHb-Uu-kd1" firstAttribute="top" secondItem="Uix-57-ExW" secondAttribute="top" constant="6.5" id="zJN-o9-u6Y"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -206,18 +210,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1oL-QO-DhH">
-                                                    <rect key="frame" x="78" y="7" width="258" height="30"/>
+                                                    <rect key="frame" x="78" y="7" width="258" height="29.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScV-DL-k5i">
-                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" id="WdW-oJ-eBa"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" id="eFa-9t-87i"/>
+                                                            </constraints>
                                                             <state key="normal" title="S"/>
                                                             <connections>
                                                                 <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="JzY-M6-qZT"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4w-Gs-15L">
-                                                            <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="38" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="M"/>
                                                             <connections>
@@ -225,7 +233,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJH-BN-CCD">
-                                                            <rect key="frame" x="76" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="76" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="T"/>
                                                             <connections>
@@ -233,7 +241,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-Sa-zMm">
-                                                            <rect key="frame" x="114" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="114" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="W"/>
                                                             <connections>
@@ -241,7 +249,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbA-jX-ojF">
-                                                            <rect key="frame" x="152" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="152" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="T"/>
                                                             <connections>
@@ -249,7 +257,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-xe-dT8">
-                                                            <rect key="frame" x="190" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="190" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="F"/>
                                                             <connections>
@@ -257,7 +265,7 @@
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5p-Jv-Z8H">
-                                                            <rect key="frame" x="228" y="0.0" width="30" height="30"/>
+                                                            <rect key="frame" x="228" y="0.0" width="30" height="29.5"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="S"/>
                                                             <connections>
@@ -270,6 +278,8 @@
                                             <constraints>
                                                 <constraint firstItem="1oL-QO-DhH" firstAttribute="centerY" secondItem="9Oh-k2-y4F" secondAttribute="centerY" id="0s1-5u-vPk"/>
                                                 <constraint firstItem="1oL-QO-DhH" firstAttribute="centerX" secondItem="9Oh-k2-y4F" secondAttribute="centerX" id="CAw-nt-mdr"/>
+                                                <constraint firstAttribute="bottom" secondItem="1oL-QO-DhH" secondAttribute="bottom" constant="7" id="axS-O2-eBg"/>
+                                                <constraint firstItem="1oL-QO-DhH" firstAttribute="top" secondItem="9Oh-k2-y4F" secondAttribute="top" constant="7" id="jdg-RT-227"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
