@@ -152,6 +152,7 @@ class SettingsViewController: UITableViewController {
         defaults.set(notifyDays, forKey: Settings.notifyDays.rawValue)
 
         defaults.synchronize()
+        registerNotifications()
     }
 
     private func updateUI() {
