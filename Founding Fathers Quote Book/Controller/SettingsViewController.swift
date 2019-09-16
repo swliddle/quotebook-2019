@@ -17,6 +17,23 @@ class SettingsViewController: UITableViewController {
         static let enabled = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
     }
 
+    private struct NotificationAlert {
+        static let buttonLabel = "OK"
+        static let message = """
+                            To allow this app to remind you of the quote of the day, please
+                            go to the Settings app and enable notifications for the Quotes
+                            app.
+                            """
+        static let title = "Notifications Are Disabled"
+    }
+
+    private struct NotificationContent {
+        static let body = "Read advice from our Founding Fathers."
+        static let identifier = "edu.byu.ffqb"
+        static let subtitle = "Quote of the Day"
+        static let title = "Founding Fathers"
+    }
+
     private enum Settings: String {
         case notificationsOn, hour, minute, notifyDays
     }
@@ -39,6 +56,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        checkNotificationPermissions()
         restoreSettings()
         updateUI()
     }
@@ -62,6 +80,23 @@ class SettingsViewController: UITableViewController {
     }
     
     // MARK: - Helpers
+
+    private func checkNotificationPermissions() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+
+            if settings.authorizationStatus != .authorized {
+                let alertController = UIAlertController(title: NotificationAlert.title,
+                                                        message: NotificationAlert.message,
+                                                        preferredStyle: .alert)
+
+                alertController.addAction(UIAlertAction(title: NotificationAlert.buttonLabel,
+                                                        style: .default,
+                                                        handler: nil))
+
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
 
     private func restoreSettings() {
         let defaults = UserDefaults.standard
