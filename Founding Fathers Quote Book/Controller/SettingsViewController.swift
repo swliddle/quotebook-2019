@@ -12,6 +12,10 @@ class SettingsViewController: UITableViewController {
 
     // MARK: - Constants
 
+    private struct Color {
+        static let disabled = UIColor.clear
+        static let enabled = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+    }
 
     // MARK: - Properties
 
@@ -28,11 +32,51 @@ class SettingsViewController: UITableViewController {
 
     // MARK: - View controller lifecycle
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        restoreSettings()
+        updateUI()
+    }
 
     // MARK: - Actions
 
+    @IBAction func toggleNotifications(_ sender: UISwitch) {
+        notificationsOn = sender.isOn
+        saveSettings()
+    }
 
+    @IBAction func updateNotificationTime(_ sender: UIDatePicker) {
+        hour = sender.calendar.component(.hour, from: sender.date)
+        minute = sender.calendar.component(.minute, from: sender.date)
+        saveSettings()
+    }
+    @IBAction func toggleDay(_ sender: UIButton) {
+        notifyDays[sender.tag] = !notifyDays[sender.tag]
+        saveSettings()
+        updateUI()
+    }
+    
     // MARK: - Helpers
 
+    private func restoreSettings() {
+        // NEEDSWORK: do it
+    }
+
+    private func saveSettings() {
+        // NEEDSWORK: do it
+    }
+
+    private func updateUI() {
+        notificationsSwitch.setOn(notificationsOn, animated: false)
+
+        let date = timePicker.calendar.date(bySettingHour: hour, minute: minute, second: 0, of: Date()) ?? Date()
+
+        timePicker.setDate(date, animated: false)
+
+        for button in dayButtons {
+            button.backgroundColor = notifyDays[button.tag] ? Color.enabled : Color.disabled
+        }
+    }
 
 }

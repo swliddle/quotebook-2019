@@ -139,7 +139,7 @@
                         <sections>
                             <tableViewSection id="ZWw-2j-di0">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KJ7-cx-fzq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="KJ7-cx-fzq">
                                         <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KJ7-cx-fzq" id="Uix-57-ExW">
@@ -154,6 +154,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LHb-Uu-kd1">
                                                     <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="toggleNotifications:" destination="hgJ-7X-SFy" eventType="valueChanged" id="gPv-NB-bUM"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -169,7 +172,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notify at Time" id="IGI-TB-xn6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="pSD-lN-xJi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="180" id="pSD-lN-xJi">
                                         <rect key="frame" x="0.0" y="117.5" width="414" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pSD-lN-xJi" id="CvY-5S-qM9">
@@ -178,6 +181,9 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="7BD-8V-s7y">
                                                     <rect key="frame" x="0.0" y="-18" width="414" height="216"/>
+                                                    <connections>
+                                                        <action selector="updateNotificationTime:" destination="hgJ-7X-SFy" eventType="valueChanged" id="lCb-7K-A0Z"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -191,7 +197,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Notify on Days" id="8mi-ah-HYI">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LLV-iI-NfH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="LLV-iI-NfH">
                                         <rect key="frame" x="0.0" y="353.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LLV-iI-NfH" id="9Oh-k2-y4F">
@@ -205,36 +211,57 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="S"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="JzY-M6-qZT"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S4w-Gs-15L">
                                                             <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="M"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="RTg-LR-FaK"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJH-BN-CCD">
                                                             <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="T"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="Yil-pw-Yyf"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMQ-Sa-zMm">
                                                             <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="W"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="wkB-Dd-tlk"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QbA-jX-ojF">
                                                             <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="T"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="feh-ET-kN5"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-xe-dT8">
                                                             <rect key="frame" x="190" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="F"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="dAs-pJ-ubx"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5p-Jv-Z8H">
                                                             <rect key="frame" x="228" y="0.0" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="S"/>
+                                                            <connections>
+                                                                <action selector="toggleDay:" destination="hgJ-7X-SFy" eventType="touchUpInside" id="y8u-CV-C8z"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
