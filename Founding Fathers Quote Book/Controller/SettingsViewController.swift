@@ -45,6 +45,28 @@ class SettingsViewController: UITableViewController {
     var notificationsOn = true
     var notifyDays = [ true, true, true, true, true, true, true ]
 
+    // MARK: - Computed properties
+
+    private var notificationContent: UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+
+        content.title = NotificationContent.title
+        content.subtitle = NotificationContent.subtitle
+        content.body = NotificationContent.body
+
+        return content
+    }
+
+    private var notificationTrigger: UNNotificationTrigger {
+        var components = DateComponents()
+
+        components.hour = hour
+        components.minute = minute
+
+        return UNCalendarNotificationTrigger(dateMatching: components,
+                                             repeats: true)
+    }
+
     // MARK: - Outlets
 
     @IBOutlet var dayButtons: [UIButton]!
@@ -90,11 +112,23 @@ class SettingsViewController: UITableViewController {
                                                         preferredStyle: .alert)
 
                 alertController.addAction(UIAlertAction(title: NotificationAlert.buttonLabel,
-                                                        style: .default,
-                                                        handler: nil))
+                                                        style: .default))
 
-                self.present(alertController, animated: true, completion: nil)
+                self.present(alertController, animated: true)
             }
+        }
+    }
+
+    private func registerNotifications() {
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+
+        if notificationsOn {
+            let request = UNNotificationRequest(identifier: NotificationContent.identifier,
+                                                content: notificationContent,
+                                                trigger: notificationTrigger)
+
+            UNUserNotificationCenter.current().add(request)
         }
     }
 

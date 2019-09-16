@@ -179,7 +179,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="7BD-8V-s7y">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7BD-8V-s7y">
                                                     <rect key="frame" x="0.0" y="-18" width="414" height="216"/>
                                                     <connections>
                                                         <action selector="updateNotificationTime:" destination="hgJ-7X-SFy" eventType="valueChanged" id="lCb-7K-A0Z"/>
