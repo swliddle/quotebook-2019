@@ -18,7 +18,8 @@ class SettingsViewController: UITableViewController {
     }
 
     private struct NotificationAlert {
-        static let buttonLabel = "OK"
+        static let cancelLabel = "Cancel"
+        static let goToSettingsLabel = "Settings"
         static let message = """
                             To allow this app to remind you of the quote of the day, please
                             go to the Settings app and enable notifications for the Quotes
@@ -111,9 +112,17 @@ class SettingsViewController: UITableViewController {
                                                         message: NotificationAlert.message,
                                                         preferredStyle: .alert)
 
-                alertController.addAction(UIAlertAction(title: NotificationAlert.buttonLabel,
-                                                        style: .default))
+                alertController.addAction(UIAlertAction(title: NotificationAlert.cancelLabel,
+                                                        style: .cancel))
 
+                let action = UIAlertAction(title: NotificationAlert.goToSettingsLabel,
+                                           style: .default) { _ in
+                    if let url = UIApplication.openSettingsURLString.url {
+                        UIApplication.shared.open(url)
+                    }
+                }
+
+                alertController.addAction(action)
                 self.present(alertController, animated: true)
             }
         }
