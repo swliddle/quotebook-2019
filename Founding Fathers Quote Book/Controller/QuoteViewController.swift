@@ -15,6 +15,9 @@ class QuoteViewController: UIViewController {
 
     private struct Storyboard {
         static let quoteOfTheDayTitle = "Quote of the Day"
+        static let showTopicsSegueIdentifier = "ShowTopics"
+        static let todayTitle = "Today"
+        static let topicsTitle = "Topics"
     }
 
     // MARK: - Properties
@@ -25,6 +28,7 @@ class QuoteViewController: UIViewController {
 
     // MARK: - Outlets
 
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var webView: WKWebView!
 
     // MARK: - View controller lifecycle
@@ -54,7 +58,16 @@ class QuoteViewController: UIViewController {
 
         updateUIByToggling()
     }
-    
+
+    @IBAction func toggleTopics(_ sender: UIBarButtonItem) {
+        if sender.title == Storyboard.topicsTitle {
+            performSegue(withIdentifier: Storyboard.showTopicsSegueIdentifier,
+                         sender: sender)
+        } else {
+            showQuoteOfTheDay()
+        }
+    }
+
     // MARK: - Helpers
 
     private func chooseQuoteOfTheDay() {
@@ -79,6 +92,11 @@ class QuoteViewController: UIViewController {
         updateUI()
     }
 
+    private func showQuoteOfTheDay() {
+        topic = nil
+        configure()
+    }
+
     private func title(for topic: String) -> String {
         return "\(topic.capitalized) (\(currentQuoteIndex + 1) of \(quotes.count))"
     }
@@ -88,8 +106,10 @@ class QuoteViewController: UIViewController {
 
         if let currentTopic = topic {
             title = title(for: currentTopic)
+            toggleButton.title = Storyboard.todayTitle
         } else {
             title = Storyboard.quoteOfTheDayTitle
+            toggleButton.title = Storyboard.topicsTitle
         }
 
         webView.loadHTMLString(currentQuote.html, baseURL: nil)

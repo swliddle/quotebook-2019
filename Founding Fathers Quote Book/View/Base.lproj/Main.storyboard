@@ -50,7 +50,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="czz-YA-7rW"/>
                         <barButtonItem key="leftBarButtonItem" title="Topics" id="45j-fO-q2i">
                             <connections>
-                                <segue destination="7Io-Vd-fsd" kind="presentation" id="Yjw-my-Cpy"/>
+                                <action selector="toggleTopics:" destination="BYZ-38-t0r" id="r5A-KQ-sNp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="wXT-pd-iCC">
@@ -60,7 +60,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="toggleButton" destination="45j-fO-q2i" id="tWa-z3-Xbz"/>
                         <outlet property="webView" destination="sly-z3-u2E" id="I2a-iW-OmX"/>
+                        <segue destination="7Io-Vd-fsd" kind="presentation" identifier="ShowTopics" id="mAQ-9G-yH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
