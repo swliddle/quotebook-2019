@@ -160,7 +160,6 @@ class SettingsViewController: UITableViewController {
         defaults.set(minute, forKey: Settings.minute.rawValue)
         defaults.set(notifyDays, forKey: Settings.notifyDays.rawValue)
 
-        defaults.synchronize()
         registerNotifications()
     }
 
