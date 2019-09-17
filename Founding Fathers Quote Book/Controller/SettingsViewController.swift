@@ -89,6 +89,10 @@ class SettingsViewController: UITableViewController {
     @IBAction func toggleNotifications(_ sender: UISwitch) {
         notificationsOn = sender.isOn
         saveSettings()
+
+        if notificationsOn {
+            checkNotificationPermissions()
+        }
     }
 
     @IBAction func updateNotificationTime(_ sender: UIDatePicker) {
@@ -96,6 +100,7 @@ class SettingsViewController: UITableViewController {
         minute = sender.calendar.component(.minute, from: sender.date)
         saveSettings()
     }
+
     @IBAction func toggleDay(_ sender: UIButton) {
         notifyDays[sender.tag] = !notifyDays[sender.tag]
         saveSettings()
